@@ -70,7 +70,7 @@ function App() {
 
   return (
     <main>
-      <Header storeName="ComponentCorner" />
+      <Header storeName="ComponentCorner" cartCount={cart.length} />
       <Hero
         title="Smart components for modern shopping"
         subtitle="Find thoughtful tools and resources for building better digital experiences."
