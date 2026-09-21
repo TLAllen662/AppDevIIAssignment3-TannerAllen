@@ -80,10 +80,8 @@ function App() {
         {products.map((product) => (
           <ProductCard
             key={product.id}
-            name={product.name}
-            price={`$${product.price.toFixed(2)}`}
-            image={product.image}
-            description={product.description}
+            product={product}
+            addToCart={addToCart}
           />
         ))}
       </section>
