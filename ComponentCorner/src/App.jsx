@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import CartItem from './components/CartItem'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -68,6 +69,10 @@ function App() {
     })
   }
 
+  const removeFromCart = (productId) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== productId))
+  }
+
   return (
     <main>
       <Header storeName="ComponentCorner" cartCount={cart.length} />
@@ -85,6 +90,18 @@ function App() {
             onAddToCart={addToCart}
           />
         ))}
+      </section>
+      <section id="cart" className="cart-section" aria-label="Shopping cart">
+        <h2>Your Cart</h2>
+        {cart.length === 0 ? (
+          <p className="cart-empty">Your cart is empty.</p>
+        ) : (
+          <div className="cart-list">
+            {cart.map((item) => (
+              <CartItem key={item.id} item={item} onRemove={removeFromCart} />
+            ))}
+          </div>
+        )}
       </section>
       <Footer
         storeName="ComponentCorner"
