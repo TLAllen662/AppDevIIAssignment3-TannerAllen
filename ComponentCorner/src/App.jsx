@@ -54,6 +54,7 @@ function App() {
   const [cart, setCart] = useState([])
 
   const addToCart = (product) => {
+    console.log('Adding to cart:', product)
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id)
       if (existingItem) {
@@ -81,7 +82,7 @@ function App() {
           <ProductCard
             key={product.id}
             product={product}
-            addToCart={addToCart}
+            onAddToCart={addToCart}
           />
         ))}
       </section>
